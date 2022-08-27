@@ -1,0 +1,60 @@
+total_epoch: 100
+start_epoch: 1
+
+alphabet:
+  alphabet_path: './asset/breg/alphabet.txt'
+
+label:
+  label_path: './asset/breg/label.json'
+
+loss_model:
+  model:
+    node_channel: 10
+    edge_channel: 3
+    hidden_channel: 512
+    dropout: 0
+    layer_num: 8
+
+  criterion:
+    factor: 3
+    ignore_index: -100
+
+optimizer:
+  name: 'Adam'
+  params:
+    lr: 0.001
+
+train:
+  batch_size: 16
+  num_workers: 2
+  drop_last: True
+  shuffle: True
+  pin_memory: False
+  dataset:
+    path: 'train.json'
+
+valid:
+  batch_size: 4
+  num_workers: 2
+  drop_last: True
+  shuffle: False
+  pin_memory: False
+  dataset:
+    path: 'valid.json'
+
+test:
+  batch_size: 21
+  num_workers: 2
+  drop_last: True
+  shuffle: False
+  pin_memory: False
+  dataset:
+    path: 'test.json'
+
+checkpoint:
+  workspace: './workspace'
+  resume: ''
+
+logger:
+  workspace: './workspace'
+  level: 'INFO'
