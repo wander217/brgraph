@@ -108,8 +108,8 @@ class GraphDataset(Dataset):
                 x_dist = x_j - x_i
                 y_dist = y_j - y_i
 
-                if y_dist > 0:
-                    continue
+                # if y_dist > 0:
+                #     continue
                 # dists.append([int(np.sign(x_dist)),
                 #               int(np.sign(y_dist)),
                 #               lengths[j] / lengths[i]])
